@@ -1,1 +1,4 @@
-<jk-layout title="分包测试页面">分包测试</jk-layout>
+<jk-layout title="分包测试页面">
+    分包测试
+    <van-button type="primary" block bind:tap="handleBack">返回</van-button>
+</jk-layout>

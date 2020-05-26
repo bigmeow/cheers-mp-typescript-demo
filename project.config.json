@@ -1,154 +1,158 @@
 {
-    "description": "项目配置文件",
-    "miniprogramRoot": "dist/",
-    "compileType": "miniprogram",
-    "libVersion": "2.11.0",
-    "projectname": "JK724.XCX.WechatShopping",
-    "setting": {
-        "urlCheck": false,
-        "es6": true,
-        "enhance": true,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": true,
-        "coverView": true,
-        "nodeModules": true,
-        "autoAudits": false,
-        "showShadowRootInWxmlPanel": true,
-        "scopeDataCheck": false,
-        "uglifyFileName": true,
-        "checkInvalidKey": true,
-        "checkSiteMap": false,
-        "uploadWithSourceMap": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "bundle": false,
-        "useCompilerModule": false,
-        "userConfirmedUseCompilerModuleSwitch": false
-    },
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "appid": "wxe2c072858da13449",
-    "watchOptions": {
-        "ignore": ["node_modules", "dist/node_modules/**/**", "src/**/**"]
-    },
-    "packOptions": {
-        "ignore": [
-            {
-                "type": "folder",
-                "value": "node_modules"
-            },
-            {
-                "type": "regexp",
-                "value": "\\.ts$"
-            }
-        ]
-    },
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "plugin": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "gamePlugin": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": -1,
-            "list": [
-                {
-                    "id": -1,
-                    "name": "健康商城",
-                    "pathName": "pages/tabbar/store-home/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "产品详情",
-                    "pathName": "pages/product/details/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 2,
-                    "name": "入口页带参数",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=choose-address",
-                    "scene": null
-                },
-                {
-                    "id": 3,
-                    "name": "pages/user/collections/index",
-                    "pathName": "pages/user/collections/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 4,
-                    "name": "商品详情",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=product-details&id=9ffb0dcb-e819-440d-aa2e-fb4c48588eb5",
-                    "scene": null
-                },
-                {
-                    "id": 5,
-                    "name": "购物车",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=shopping-cart",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "领券中心",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=take-coupon-list",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "我的优惠券",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=my-coupon-list",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "我的收藏",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=my-collections",
-                    "scene": null
-                },
-                {
-                    "id": 9,
-                    "name": "订单确认",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=order-confirmation&id=9468C3E5-B823-4DEC-8659-0A907CD0EA3B",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "素材圈",
-                    "pathName": "pages/entry/index",
-                    "query": "pagename=material-circle",
-                    "scene": null
-                }
-            ]
-        }
-    }
+	"description": "项目配置文件",
+	"miniprogramRoot": "dist/",
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"projectname": "JK724.XCX.WechatShopping",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": false,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"appid": "wxe2c072858da13449",
+	"watchOptions": {
+		"ignore": [
+			"node_modules",
+			"dist/node_modules/**/**",
+			"src/**/**"
+		]
+	},
+	"packOptions": {
+		"ignore": [
+			{
+				"type": "folder",
+				"value": "node_modules"
+			},
+			{
+				"type": "regexp",
+				"value": "\\.ts$"
+			}
+		]
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "健康商城",
+					"pathName": "pages/tabbar/store-home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "产品详情",
+					"pathName": "pages/product/details/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "入口页带参数",
+					"pathName": "pages/entry/index",
+					"query": "pagename=choose-address",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/user/collections/index",
+					"pathName": "pages/user/collections/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "商品详情",
+					"pathName": "pages/entry/index",
+					"query": "pagename=product-details&id=9ffb0dcb-e819-440d-aa2e-fb4c48588eb5",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "购物车",
+					"pathName": "pages/entry/index",
+					"query": "pagename=shopping-cart",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领券中心",
+					"pathName": "pages/entry/index",
+					"query": "pagename=take-coupon-list",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的优惠券",
+					"pathName": "pages/entry/index",
+					"query": "pagename=my-coupon-list",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/entry/index",
+					"query": "pagename=my-collections",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "订单确认",
+					"pathName": "pages/entry/index",
+					"query": "pagename=order-confirmation&id=9468C3E5-B823-4DEC-8659-0A907CD0EA3B",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "素材圈",
+					"pathName": "pages/entry/index",
+					"query": "pagename=material-circle",
+					"scene": null
+				}
+			]
+		}
+	}
 }

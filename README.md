@@ -8,6 +8,12 @@ npm i
 yarn install
 ```
 
+运行
+
+```bash
+npm run uat
+```
+
 ## 相关文档
 
 vant 小程序组件地址： https://youzan.github.io/vant-weapp/#/intro

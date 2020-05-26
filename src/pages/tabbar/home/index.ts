@@ -1,4 +1,5 @@
 import { getAllType } from "@/service/api/test";
+import router from "@/service/router";
 Page({
     data: {
         result: ""
@@ -7,6 +8,11 @@ Page({
         const data = await getAllType();
         this.setData({
             result: JSON.stringify(data)
+        });
+    },
+    handleRouterSwitch() {
+        router.push({
+            name: "test"
         });
     }
 });
