@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "module": "CommonJS",
+        "target": "ES2017",
+        "allowJs": true,
+        "moduleResolution": "Node",
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "alwaysStrict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+        "strict": true,
+        "removeComments": true,
+        "pretty": true,
+        "strictPropertyInitialization": true,
+        "lib": ["es5", "ES2015"],
+        "types": ["./typings"],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@vant/weapp/*": ["./node_modules/@vant/weapp/dist/*"]
+        }
+    },
+    "include": ["./**/*.ts"],
+    "exclude": ["node_modules"]
+}

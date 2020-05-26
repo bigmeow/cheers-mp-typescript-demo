@@ -1,0 +1,3 @@
+<view catch:tap="handleJump" class="custom-class">
+    <slot></slot>
+</view>

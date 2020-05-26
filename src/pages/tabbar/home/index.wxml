@@ -1,0 +1,6 @@
+<jk-layout title="首页" content-class="home" tabbar>
+    tabber/home页面
+    <van-button type="primary" block bind:tap="handleFeatchData">axios获取http数据</van-button>
+    请求结果：
+    <view style="height: 100px; overflow: scroll;">{{result}}</view>
+</jk-layout>

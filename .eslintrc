@@ -1,0 +1,29 @@
+{
+    "root": true,
+    "env": { "node": true, "es6": true },
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+    "plugins": ["@typescript-eslint", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/class-name-casing": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/triple-slash-reference": "off"
+    },
+    "globals": {
+        "wx": true,
+        "getApp": true,
+        "Page": true,
+        "getCurrentPages": true,
+        "Component": true,
+        "App": true,
+        "requirePlugin": true
+    }
+}

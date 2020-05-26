@@ -1,0 +1,25 @@
+<view class="jk-page page-class">
+    <van-nav-bar wx:if="{{showNavBar}}" fixed placeholder title="{{title}}" z-index="{{20}}" title-class="nav-title">
+        <view class="left-box" slot="left" wx:if="{{!tabbar}}">
+            <!-- 同时显示返回主页和返回上一页 -->
+            <view class="capsule" wx:if="{{ showBack && showBackHome }}">
+                <van-icon bind:tap="handleBack" name="arrow-left" size="20px" />
+                <view class="split-line"></view>
+                <van-icon bind:tap="handleBackHome" name="wap-home" size="20px" />
+            </view>
+            <block wx:else>
+                <!-- 单个按钮返回上一页 -->
+                <view class="left-btn" wx:if="{{ showBack }}">
+                    <van-icon bind:tap="handleBack" name="arrow-left" size="20px" />
+                </view>
+                <!-- 单个按钮返回主页 -->
+                <view class="circle-capsule" wx:else="{{showBackHome}}">
+                    <van-icon bind:tap="handleBackHome" name="wap-home" size="20px" />
+                </view>
+            </block>
+        </view>
+    </van-nav-bar>
+    <view class="jk-page-content content-class">
+        <slot></slot>
+    </view>
+</view>

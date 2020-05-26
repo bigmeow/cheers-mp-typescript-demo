@@ -1,0 +1,11 @@
+{
+    "eslint.validate": ["javascript", "javascriptreact"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "minapp-vscode.wxmlFormatter": "prettier",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "files.eol": "\n"
+}
