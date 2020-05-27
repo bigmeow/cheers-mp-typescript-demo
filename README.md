@@ -18,6 +18,21 @@ yarn install
 ```bash
 npm run uat
 ```
+## 命令说明
+本 quick-demo 假设使用者拥有2个开发环境：测试环境和生产环境；测试环境自己开发用，生产用于发布使用，故提供了下面四个scripts命令：
+```json
+{
+    //开发时使用，会启动监听模式
+    "uat": "cheers-mp-service serve --mode uat --open", // 读取.env.uat文件的环境变量
+    "prd": "cheers-mp-service serve --open", // 读取.env 文件的环境变量
+    
+    // 发布时使用，会压缩代码并自动上传代码作为体验版
+    "build:uat": "cheers-mp-service build --mode uat --upload",
+    "build:prd": "cheers-mp-service build --upload",
+}
+
+```
+
 
 ## 相关文档
 
