@@ -1,5 +1,9 @@
 # miniprogram-ts-quickstart
 
+## 前置准备
+- 由于脚手架使用了开发者工具自带的命令行，注意首先需要在开发者工具的设置 -> 安全设置中开启服务端口;
+- 将 `project.config.json` 的`appid`修改成自己项目的 `appid`,并确保开发者工具已经是登录状态
+
 ## 使用
 
 ```bash
