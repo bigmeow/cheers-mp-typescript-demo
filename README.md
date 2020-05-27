@@ -40,6 +40,8 @@ vant 小程序组件地址： https://youzan.github.io/vant-weapp/#/intro
 
 脚手架文档： https://bigmeow.github.com/cheers-mp
 
+路由插件： https://github.com/bigmeow/cheers-mp/tree/master/packages/cheers-mp-plugin-router
+
 路由文档： https://github.com/bigmeow/cheers-mp-router#readme
 
 富文本框插件 https://jin-yufeng.github.io/Parser/#/
