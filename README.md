@@ -1,7 +1,7 @@
 # miniprogram-ts-quickstart
 
 ## 前置准备
-- 开发者工具迭代快，为减少踩坑，请使用[稳定版的开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)
+- 开发者工具迭代快，为减少踩坑，请使用[最新的稳定版微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)
 - 由于脚手架使用了开发者工具自带的命令行，注意首先需要在开发者工具的设置 -> 安全设置中开启服务端口;
 - 将 `project.config.json` 的`appid`修改成自己项目的 `appid`,并确保开发者工具已经是登录状态
 
@@ -36,11 +36,11 @@ npm run uat
 
 ## 相关文档
 
+脚手架文档： https://cheers-mp.com
+
+脚手架路由插件： https://github.com/bigmeow/cheers-mp/tree/master/packages/cheers-mp-plugin-router
+
 vant 小程序组件地址： https://youzan.github.io/vant-weapp/#/intro
-
-脚手架文档： https://bigmeow.github.com/cheers-mp
-
-路由插件： https://github.com/bigmeow/cheers-mp/tree/master/packages/cheers-mp-plugin-router
 
 路由文档： https://github.com/bigmeow/cheers-mp-router#readme
 
@@ -50,4 +50,4 @@ vant 小程序组件地址： https://youzan.github.io/vant-weapp/#/intro
 
 ## 其它
 
--   git config core.ignorecase false git 大小写不敏感问题
+-   git config core.ignorecase false    `git` 大小写不敏感问题
