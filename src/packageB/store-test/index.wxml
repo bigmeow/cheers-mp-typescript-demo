@@ -1,0 +1,8 @@
+<van-notice-bar scrollable="{{false}}" text="omix 对 ts 支持不完善，谨慎选择使用" />
+<van-field label="store-num" value="{{$.storeTest.num}}" disabled border="{{ false }}"> </van-field>
+<view class="controll">
+    <van-button bind:tap="handleReduce" class="btn" type="info" block>减</van-button>
+    <van-button bind:tap="handleAdd" class="btn" type="primary" block>加</van-button>
+</view>
+<view>{{inner}}</view>
+<van-button bind:tap="handleUpdate" class="btn" type="primary" block>点击修改页面内部私有数据</van-button>

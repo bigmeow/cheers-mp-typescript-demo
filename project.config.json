@@ -70,7 +70,14 @@
         },
         "miniprogram": {
             "current": -1,
-            "list": []
+            "list": [
+                {
+                    "id": -1,
+                    "name": "store测试",
+                    "pathName": "packageB/store-test/index",
+                    "scene": null
+                }
+            ]
         }
     }
 }

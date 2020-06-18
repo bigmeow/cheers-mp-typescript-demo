@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "omix store集成示例",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "van-field": "@vant/weapp/field/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-row": "@vant/weapp/row/index",
+        "van-col": "@vant/weapp/col/index",
+        "van-notice-bar": "@vant/weapp/notice-bar/index"
+    }
+}
