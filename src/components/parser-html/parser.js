@@ -10,10 +10,10 @@ var cache = {},
     fs = wx.getFileSystemManager && wx.getFileSystemManager();
 try {
     var dom = require("./libs/document.js");
-} catch (e) {}
+} catch (e) { }
 // 计算 cache 的 key
-function hash(str) {
-    for (var i = str.length, val = 5381; i--; ) val += (val << 5) + str.charCodeAt(i);
+function hash (str) {
+    for (var i = str.length, val = 5381; i--;) val += (val << 5) + str.charCodeAt(i);
     return val;
 }
 Component({
@@ -23,7 +23,7 @@ Component({
     properties: {
         html: {
             type: null,
-            observer(html) {
+            observer (html) {
                 if (this._refresh) this._refresh = false;
                 else this.setContent(html, false, true);
             }
@@ -52,7 +52,7 @@ Component({
             type: "ancestor"
         }
     },
-    created() {
+    created () {
         // 图片数组
         this.imgList = [];
         this.imgList.setItem = function (i, src) {
@@ -87,7 +87,7 @@ Component({
         };
         if (dom) this.document = new dom(this);
     },
-    detached() {
+    detached () {
         // 删除暂存
         this.imgList.each((src) => {
             if (src && src.includes(wx.env.USER_DATA_PATH) && fs)
@@ -99,7 +99,7 @@ Component({
     },
     methods: {
         // 锚点跳转
-        navigateTo(obj) {
+        navigateTo (obj) {
             if (!this.data.useAnchor)
                 return (
                     obj.fail &&
@@ -117,17 +117,17 @@ Component({
                         return this.group
                             ? this.group.navigateTo(this.i, obj)
                             : obj.fail &&
-                                  obj.fail({
-                                      errMsg: "Label not found"
-                                  });
+                            obj.fail({
+                                errMsg: "Label not found"
+                            });
                     obj.scrollTop = res[1].scrollTop + res[0].top;
                     wx.pageScrollTo(obj);
                 });
         },
         // 获取文本
-        getText(ns = this.data.html) {
+        getText (ns = this.data.html) {
             var txt = "";
-            for (var i = 0, n; (n = ns[i++]); ) {
+            for (var i = 0, n; (n = ns[i++]);) {
                 if (n.type == "text")
                     txt += n.text
                         .replace(/&nbsp;/g, "\u00A0")
@@ -147,12 +147,12 @@ Component({
             return txt;
         },
         // 获取视频 context
-        getVideoContext(id) {
+        getVideoContext (id) {
             if (!id) return this.videoContexts;
-            for (var i = this.videoContexts.length; i--; ) if (this.videoContexts[i].id == id) return this.videoContexts[i];
+            for (var i = this.videoContexts.length; i--;) if (this.videoContexts[i].id == id) return this.videoContexts[i];
         },
         // 渲染富文本
-        setContent(html, append, _watch) {
+        setContent (html, append, _watch) {
             var data = {};
             if (!html) {
                 if (_watch || append) return;
@@ -174,7 +174,7 @@ Component({
                 // 转换不符合格式的 array
                 if (html.length && html[0].PoweredBy != "Parser") {
                     let parser = new Parser("", this.data);
-                    (function f(ns) {
+                    (function f (ns) {
                         for (var i = 0, n; (n = ns[i]); i++) {
                             if (n.type == "text") continue;
                             n.attrs = n.attrs || {};
@@ -207,9 +207,9 @@ Component({
             this.imgList.length = 0;
             this.videoContexts = [];
             var ns = this.selectAllComponents(".top,.top>>>._node");
-            for (let i = 0, n; (n = ns[i++]); ) {
+            for (let i = 0, n; (n = ns[i++]);) {
                 n.top = this;
-                for (var j = 0, item; (item = n.data.nodes[j++]); ) {
+                for (var j = 0, item; (item = n.data.nodes[j++]);) {
                     if (item.c) continue;
                     // 获取图片列表
                     if (item.name == "img") this.imgList.setItem(item.attrs.i, item.attrs.src);
@@ -243,7 +243,7 @@ Component({
             }, 350);
         },
         // 预加载
-        preLoad(html, num) {
+        preLoad (html, num) {
             if (typeof html == "string") {
                 var id = hash(html);
                 html = new Parser(html, this.data).parse();
@@ -251,8 +251,8 @@ Component({
             }
             var imgs,
                 wait = [];
-            (function f(ns) {
-                for (var i = 0, n; (n = ns[i++]); ) {
+            (function f (ns) {
+                for (var i = 0, n; (n = ns[i++]);) {
                     if (n.name == "img" && n.attrs.src && !wait.includes(n.attrs.src)) wait.push(n.attrs.src);
                     f(n.children || []);
                 }
@@ -266,14 +266,14 @@ Component({
                     imgs
                 });
         },
-        _load(e) {
+        _load (e) {
             if (this._wait.length)
                 this.setData({
                     [`imgs[${e.target.id}]`]: this._wait.shift()
                 });
         },
         // 事件处理
-        _tap(e) {
+        _tap (e) {
             if (this.data.gestureZoom && e.timeStamp - this._lastT < 300) {
                 var initY = e.detail.y - e.currentTarget.offsetTop;
                 if (this._zoom) {
@@ -301,10 +301,10 @@ Component({
             }
             this._lastT = e.timeStamp;
         },
-        _touchstart(e) {
+        _touchstart (e) {
             if (e.touches.length == 1) this._initX = this._lastX = e.touches[0].pageX;
         },
-        _touchmove(e) {
+        _touchmove (e) {
             var diff = e.touches[0].pageX - this._lastX;
             if (this._zoom && e.touches.length == 1 && Math.abs(diff) > 20) {
                 this._lastX = e.touches[0].pageX;

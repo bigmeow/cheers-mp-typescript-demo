@@ -13,7 +13,7 @@ class CssHandler {
         this.styles = styles;
     }
     getStyle = (data) => (this.styles = new CssParser(data, this.styles).parse());
-    match(name, attrs) {
+    match (name, attrs) {
         var tmp,
             matched = (tmp = this.styles[name]) ? tmp + ";" : "";
         if (attrs.class) {
@@ -34,30 +34,30 @@ class CssParser {
         this.res = init;
         this.state = this.Space;
     }
-    parse() {
+    parse () {
         for (var c; (c = this.data[this.i]); this.i++) this.state(c);
         return this.res;
     }
     section = () => this.data.substring(this.start, this.i);
     isLetter = (c) => (c >= "a" && c <= "z") || (c >= "A" && c <= "Z");
     // 状态机
-    Space(c) {
+    Space (c) {
         if (c == "." || c == "#" || this.isLetter(c)) {
             this.start = this.i;
             this.state = this.Name;
         } else if (c == "/" && this.data[this.i + 1] == "*") this.Comment();
         else if (!cfg.blankChar[c] && c != ";") this.state = this.Ignore;
     }
-    Comment() {
+    Comment () {
         this.i = this.data.indexOf("*/", this.i) + 1;
         if (!this.i) this.i = this.data.length;
         this.state = this.Space;
     }
-    Ignore(c) {
+    Ignore (c) {
         if (c == "{") this.floor++;
         else if (c == "}" && !--this.floor) this.state = this.Space;
     }
-    Name(c) {
+    Name (c) {
         if (cfg.blankChar[c]) {
             this.list.push(this.section());
             this.state = this.NameSpace;
@@ -69,12 +69,12 @@ class CssParser {
             this.Comma();
         } else if (!this.isLetter(c) && (c < "0" || c > "9") && c != "-" && c != "_") this.state = this.Ignore;
     }
-    NameSpace(c) {
+    NameSpace (c) {
         if (c == "{") this.Content();
         else if (c == ",") this.Comma();
         else if (!cfg.blankChar[c]) this.state = this.Ignore;
     }
-    Comma() {
+    Comma () {
         while (cfg.blankChar[this.data[++this.i]]);
         if (this.data[this.i] == "{") this.Content();
         else {
@@ -82,11 +82,11 @@ class CssParser {
             this.state = this.Name;
         }
     }
-    Content() {
+    Content () {
         this.start = ++this.i;
         if ((this.i = this.data.indexOf("}", this.i)) == -1) this.i = this.data.length;
         var content = this.section();
-        for (var i = 0, item; (item = this.list[i++]); )
+        for (var i = 0, item; (item = this.list[i++]);)
             if (this.res[item]) this.res[item] += ";" + content;
             else this.res[item] = content;
         this.list = [];

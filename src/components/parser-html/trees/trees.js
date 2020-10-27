@@ -15,13 +15,13 @@ Component({
     },
     methods: {
         // 视频播放事件
-        play(e) {
+        play (e) {
             this.top.group && this.top.group.pause(this.top.i);
             if (this.top.videoContexts.length > 1 && this.top.data.autopause)
-                for (var i = this.top.videoContexts.length; i--; ) if (this.top.videoContexts[i].id != e.currentTarget.id) this.top.videoContexts[i].pause();
+                for (var i = this.top.videoContexts.length; i--;) if (this.top.videoContexts[i].id != e.currentTarget.id) this.top.videoContexts[i].pause();
         },
         // 图片点击事件
-        imgtap(e) {
+        imgtap (e) {
             var attrs = e.target.dataset.attrs;
             if (!attrs.ignore) {
                 var preview = true;
@@ -42,7 +42,7 @@ Component({
             }
         },
         // 链接点击事件
-        linkpress(e) {
+        linkpress (e) {
             var jump = true,
                 attrs = e.currentTarget.dataset.attrs;
             attrs.ignore = () => (jump = false);
@@ -74,7 +74,7 @@ Component({
             }
         },
         // 错误事件
-        error(e) {
+        error (e) {
             var context,
                 src = "",
                 source = e.target.dataset.source,
@@ -108,7 +108,7 @@ Component({
             }
         },
         // 加载视频
-        loadVideo(e) {
+        loadVideo (e) {
             var i = e.target.dataset.i;
             this.setData({
                 [`nodes[${i}].lazyLoad`]: false,
@@ -116,7 +116,7 @@ Component({
             });
         },
         // 加载图片
-        loadImg(e) {
+        loadImg (e) {
             var data = e.target.dataset;
             if (data.auto)
                 this.setData({

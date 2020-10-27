@@ -25,7 +25,7 @@ module.exports = {
     // 信任的标签
     trustTags: makeMap(
         "a,abbr,ad,audio,b,blockquote,br,code,col,colgroup,dd,del,dl,dt,div,em,fieldset,h1,h2,h3,h4,h5,h6,hr,i,img,ins,label,legend,li,ol,p,q,source,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,title,ul,video" +
-            (canIUse ? ",bdi,bdo,caption,pre,rt,ruby" : "")
+        (canIUse ? ",bdi,bdo,caption,pre,rt,ruby" : "")
     ),
     // 默认的标签样式
     userAgentStyles: {
@@ -44,9 +44,9 @@ module.exports = {
     }
 };
 
-function makeMap(str) {
+function makeMap (str) {
     var map = {},
         list = str.split(",");
-    for (var i = list.length; i--; ) map[list[i]] = true;
+    for (var i = list.length; i--;) map[list[i]] = true;
     return map;
 }

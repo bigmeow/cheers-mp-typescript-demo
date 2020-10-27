@@ -74,7 +74,7 @@
         <view wx:else class="_ul-bef">
             <view wx:if="{{n.floor%3==0}}" class="_ul-p1">█</view>
             <view wx:elif="{{n.floor%3==2}}" class="_ul-p2"></view>
-            <view wx:else class="_ul-p1" style="border-radius: 50%;">█</view>
+            <view wx:else class="_ul-p1" style="border-radius: 50%">█</view>
         </view>
         <trees class="_node _li" lazy-load="{{lazyLoad}}" nodes="{{n.children}}"></trees>
     </view>

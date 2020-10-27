@@ -189,7 +189,7 @@ obaa.isString = function (obj) {
 };
 
 obaa.isInArray = function (arr, item) {
-    for (let i = arr.length; --i > -1; ) {
+    for (let i = arr.length; --i > -1;) {
         if (item === arr[i]) return true;
     }
     return false;

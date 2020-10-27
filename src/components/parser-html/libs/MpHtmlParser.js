@@ -11,7 +11,7 @@ var cfg = require("./config.js"),
     screenWidth = wx.getSystemInfoSync().screenWidth;
 try {
     var emoji = require("./emoji.js");
-} catch (e) {}
+} catch (e) { }
 class MpHtmlParser {
     constructor(data, options = {}) {
         this.attrs = {};
@@ -27,7 +27,7 @@ class MpHtmlParser {
         this.useAnchor = options.useAnchor;
         this.xml = options.xml;
     }
-    parse() {
+    parse () {
         if (emoji) this.data = emoji.parseEmoji(this.data);
         for (var c; (c = this.data[this.i]); this.i++) this.state(c);
         if (this.state == this.Text) this.setText();
@@ -39,7 +39,7 @@ class MpHtmlParser {
         return this.DOM;
     }
     // 设置属性
-    setAttr() {
+    setAttr () {
         var name = this.getName(this.attrName);
         if (cfg.trustAttrs[name]) {
             if (!this.attrVal) {
@@ -56,7 +56,7 @@ class MpHtmlParser {
         }
     }
     // 设置文本节点
-    setText() {
+    setText () {
         var back,
             text = this.section();
         if (!text) return;
@@ -70,7 +70,7 @@ class MpHtmlParser {
         if (!this.pre) {
             // 合并空白符
             var tmp = [];
-            for (let i = text.length, c; (c = text[--i]); ) if (!blankChar[c] || (!blankChar[tmp[0]] && (c = " "))) tmp.unshift(c);
+            for (let i = text.length, c; (c = text[--i]);) if (!blankChar[c] || (!blankChar[tmp[0]] && (c = " "))) tmp.unshift(c);
             text = tmp.join("");
             if (text == " ") return;
         }
@@ -112,11 +112,11 @@ class MpHtmlParser {
             });
     }
     // 设置元素节点
-    setNode() {
+    setNode () {
         var node = {
-                name: this.getName(this.tagName),
-                attrs: this.attrs
-            },
+            name: this.getName(this.tagName),
+            attrs: this.attrs
+        },
             close = cfg.selfClosingTags[node.name] || (this.xml && this.data[this.i] == "/");
         this.attrs = {};
         if (!cfg.ignoreTags[node.name]) {
@@ -157,7 +157,7 @@ class MpHtmlParser {
         this.state = this.Text;
     }
     // 移除标签
-    remove(node) {
+    remove (node) {
         var name = node.name,
             j = this.i;
         while (1) {
@@ -198,7 +198,7 @@ class MpHtmlParser {
         }
     }
     // 处理属性
-    matchAttr(node) {
+    matchAttr (node) {
         var attrs = node.attrs,
             style = this.CssHandler.match(node.name, attrs, node) + (attrs.style || ""),
             styleObj = {};
@@ -243,7 +243,7 @@ class MpHtmlParser {
             case "td":
             case "th":
                 if (attrs.colspan || attrs.rowspan)
-                    for (var k = this.STACK.length, item; (item = this.STACK[--k]); )
+                    for (var k = this.STACK.length, item; (item = this.STACK[--k]);)
                         if (item.name == "table") {
                             item.c = void 0;
                             break;
@@ -319,11 +319,11 @@ class MpHtmlParser {
         if (style) attrs.style = style;
     }
     // 节点出栈处理
-    popNode(node) {
+    popNode (node) {
         // 空白符处理
         if (node.pre) {
             node.pre = this.pre = void 0;
-            for (let i = this.STACK.length; i--; ) if (this.STACK[i].pre) this.pre = true;
+            for (let i = this.STACK.length; i--;) if (this.STACK[i].pre) this.pre = true;
         }
         if (node.name == "head" || (cfg.filter && cfg.filter(node, this) == false)) return this.siblings().pop();
         var attrs = node.attrs;
@@ -339,10 +339,10 @@ class MpHtmlParser {
         if (node.c) {
             if (node.name == "ul") {
                 var floor = 1;
-                for (let i = this.STACK.length; i--; ) if (this.STACK[i].name == "ul") floor++;
-                if (floor != 1) for (let i = node.children.length; i--; ) node.children[i].floor = floor;
+                for (let i = this.STACK.length; i--;) if (this.STACK[i].name == "ul") floor++;
+                if (floor != 1) for (let i = node.children.length; i--;) node.children[i].floor = floor;
             } else if (node.name == "ol") {
-                for (let i = 0, num = 1, child; (child = node.children[i++]); )
+                for (let i = 0, num = 1, child; (child = node.children[i++]);)
                     if (child.name == "li") {
                         child.type = "ol";
                         child.num =
@@ -376,7 +376,7 @@ class MpHtmlParser {
             if (border) attrs.style = `border:${border}px solid gray;${attrs.style || ""}`;
             if (spacing) attrs.style = `border-spacing:${spacing}px;${attrs.style || ""}`;
             if (border || padding || node.c)
-                (function f(ns) {
+                (function f (ns) {
                     for (var i = 0, n; (n = ns[i]); i++) {
                         if (n.type == "text") continue;
                         var style = n.attrs.style || "";
@@ -400,8 +400,8 @@ class MpHtmlParser {
         }
     }
     // 工具函数
-    bubble() {
-        for (var i = this.STACK.length, item; (item = this.STACK[--i]); ) {
+    bubble () {
+        for (var i = this.STACK.length, item; (item = this.STACK[--i]);) {
             if (cfg.richOnlyTags[item.name]) {
                 if (item.name == "table" && !Object.hasOwnProperty.call(item, "c")) item.c = 1;
                 return false;
@@ -410,7 +410,7 @@ class MpHtmlParser {
         }
         return true;
     }
-    getUrl(url) {
+    getUrl (url) {
         if (url[0] == "/") {
             if (url[1] == "/") url = this.protocol + ":" + url;
             else if (this.domain) url = this.domain + url;
@@ -423,7 +423,7 @@ class MpHtmlParser {
     parent = () => this.STACK[this.STACK.length - 1];
     siblings = () => (this.STACK.length ? this.parent().children : this.DOM);
     // 状态机
-    Text(c) {
+    Text (c) {
         if (c == "<") {
             var next = this.data[this.i + 1],
                 isLetter = (c) => (c >= "a" && c <= "z") || (c >= "A" && c <= "Z");
@@ -443,7 +443,7 @@ class MpHtmlParser {
             }
         }
     }
-    Comment() {
+    Comment () {
         var key;
         if (this.data.substring(this.i + 2, this.i + 4) == "--") key = "-->";
         else if (this.data.substring(this.i + 2, this.i + 9) == "[CDATA[") key = "]]>";
@@ -453,7 +453,7 @@ class MpHtmlParser {
         this.start = this.i + 1;
         this.state = this.Text;
     }
-    TagName(c) {
+    TagName (c) {
         if (blankChar[c]) {
             this.tagName = this.section();
             while (blankChar[this.data[this.i]]) this.i++;
@@ -467,7 +467,7 @@ class MpHtmlParser {
             this.setNode();
         }
     }
-    AttrName(c) {
+    AttrName (c) {
         var blank = blankChar[c];
         if (blank) {
             this.attrName = this.section();
@@ -484,7 +484,7 @@ class MpHtmlParser {
             this.setAttr();
         }
     }
-    AttrValue(c) {
+    AttrValue (c) {
         if (c == '"' || c == "'") {
             this.start++;
             if ((this.i = this.data.indexOf(c, this.i + 1)) == -1) return (this.i = this.data.length);
@@ -496,10 +496,10 @@ class MpHtmlParser {
         }
         this.setAttr();
     }
-    EndTag(c) {
+    EndTag (c) {
         if (blankChar[c] || c == ">" || c == "/") {
             var name = this.getName(this.section());
-            for (var i = this.STACK.length; i--; ) if (this.STACK[i].name == name) break;
+            for (var i = this.STACK.length; i--;) if (this.STACK[i].name == name) break;
             if (i != -1) {
                 var node;
                 while ((node = this.STACK.pop()).name != name);

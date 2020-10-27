@@ -21,18 +21,24 @@
         "checkInvalidKey": true,
         "checkSiteMap": false,
         "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
         },
         "bundle": true,
+        "useIsolateContext": true,
         "useCompilerModule": true,
-        "userConfirmedUseCompilerModuleSwitch": true
+        "userConfirmedUseCompilerModuleSwitch": true,
+        "packNpmManually": false,
+        "packNpmRelationList": []
     },
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
-    "appid": "wxe2c072858da13449",
+    "appid": "wx3c98c6834c4365c4",
     "watchOptions": {
         "ignore": ["node_modules", "dist/node_modules/**/**", "src/**/**"]
     },

@@ -1,6 +1,6 @@
 <van-button class="btn" type="primary" block bind:tap="handleFeatchData">axios获取http数据</van-button>
 请求结果：
-<view style="height: 100px; overflow: scroll;">{{result}}</view>
+<view style="height: 100px; overflow: scroll">{{result}}</view>
 
 <van-button class="btn" type="primary" block bind:tap="handleRouterSwitch">路由API切换</van-button>
 
