@@ -3,7 +3,8 @@ import Router, { RouteConfig } from "cheers-mp-router";
 const routeConfigList: RouteConfig[] = [
     { name: "home", path: "pages/tabbar/home/index", isTab: true },
     { name: "shopping-cart", path: "pages/tabbar/shopping-cart/index", isTab: true },
-    { name: "store-test", path: "packageB/store-test/index" }
+    { name: "store-test", path: "packageB/store-test/index" },
+    { name: "img-test", path: "pages/img-test/index" }
 ];
 
 const subPackageRouteConfigList: RouteConfig[] = [{ name: "test", path: "packageA/pages/test/index" }];

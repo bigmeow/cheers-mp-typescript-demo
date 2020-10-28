@@ -1,0 +1,6 @@
+<view>
+    <view class="flex-center">图片测试</view>
+    <image mode="widthFix" src="/assets/images/else/test001.jpg" />
+    <!-- <view class="flex-center">背景图片测试</view>
+    <view class="bg-box">我是背景图片</view> -->
+</view>

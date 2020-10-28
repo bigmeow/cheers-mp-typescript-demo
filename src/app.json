@@ -1,14 +1,22 @@
 {
-    "pages": ["pages/tabbar/home/index", "pages/tabbar/shopping-cart/index"],
+    "pages": [
+        "pages/tabbar/home/index",
+        "pages/tabbar/shopping-cart/index",
+        "pages/img-test/index"
+    ],
     "subpackages": [
         {
             "root": "packageB",
-            "pages": ["store-test/index"],
+            "pages": [
+                "store-test/index"
+            ],
             "independent": false
         },
         {
             "root": "packageA",
-            "pages": ["pages/test/index"],
+            "pages": [
+                "pages/test/index"
+            ],
             "independent": false
         }
     ],

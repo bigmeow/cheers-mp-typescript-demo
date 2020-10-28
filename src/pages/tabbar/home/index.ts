@@ -10,9 +10,9 @@ Page({
             result: JSON.stringify(data)
         });
     },
-    handleRouterSwitch() {
+    handleRouterSwitch(e: WechatMiniprogram.TouchEvent) {
         router.push({
-            name: "test"
+            name: e.currentTarget.dataset.name
         });
     }
 });
